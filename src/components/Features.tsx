@@ -46,7 +46,7 @@ const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => {
       )}
       style={{ animationDelay: `${0.1 * index}s` }}
     >
-      <div className="rounded-full bg-pulse-50 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-pulse-500 mb-4 sm:mb-5">
+      <div className="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4 sm:mb-5" style={{backgroundColor: 'rgba(122, 46, 29, 0.1)', color: '#7A2E1D'}}>
         {icon}
       </div>
       <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{title}</h3>
@@ -91,8 +91,8 @@ const Features = () => {
     <section className="py-12 sm:py-16 md:py-20 pb-0 relative bg-gray-50" id="features" ref={sectionRef}>
       <div className="section-container">
         <div className="text-center mb-10 sm:mb-16">
-          <div className="pulse-chip mx-auto mb-3 sm:mb-4 opacity-0 fade-in-element">
-            <span>Features</span>
+          <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium mx-auto mb-3 sm:mb-4 opacity-0 fade-in-element">
+            <span style={{color: '#1C1C1C'}}>Features</span>
           </div>
           <h2 className="section-title mb-3 sm:mb-4 opacity-0 fade-in-element">
             Advanced Intelligence, <br className="hidden sm:block" />Human-Like Intuition

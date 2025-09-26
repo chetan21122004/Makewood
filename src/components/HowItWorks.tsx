@@ -16,7 +16,7 @@ const StepCard = ({ number, title, description, isActive, onClick }: StepCardPro
       className={cn(
         "rounded-xl p-6 cursor-pointer transition-all duration-500 border",
         isActive 
-          ? "bg-white shadow-elegant border-pulse-200" 
+          ? "bg-white shadow-elegant border-gray-200" 
           : "bg-white/50 hover:bg-white/80 border-transparent"
       )}
       onClick={onClick}
@@ -24,7 +24,7 @@ const StepCard = ({ number, title, description, isActive, onClick }: StepCardPro
       <div className="flex items-start">
         <div className={cn(
           "flex items-center justify-center rounded-full w-10 h-10 mr-4 flex-shrink-0 transition-colors duration-300",
-          isActive ? "bg-pulse-500 text-white" : "bg-gray-100 text-gray-500"
+          isActive ? "text-white text-white" : "bg-gray-100 text-gray-500"
         )}>
           {number}
         </div>

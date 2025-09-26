@@ -79,17 +79,81 @@ const ClientsTestimonials = () => {
 
   return (
     <section className="w-full py-12 sm:py-20 bg-white" id="testimonials">
+
+
+
+   {/* Client Logos - Professional Infinite Slider */}
+   <div className="mb-20 animate-on-scroll">
+            <div className="relative">
+              {/* Gradient overlays for seamless infinite effect */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+              
+              <div className="bg-white border rounded-3xl p-10 overflow-hidden ">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold mb-3" style={{color: '#1C1C1C'}}>Trusted by Leading Brands</h3>
+                  <p className="text-gray-600">Join 200+ satisfied clients who chose Makewood for their interior transformations</p>
+                </div>
+                
+                <div className="embla relative" ref={emblaRef}>
+                  <div className="embla__container flex">
+                    {infiniteClients.map((client, index) => (
+                      <div 
+                        key={`${client.name}-${index}`} 
+                        className="embla__slide flex-none w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/7 px-4"
+                      >
+                        <div className="group cursor-pointer h-24 flex items-center justify-center">
+                          <div className="  transition-all duration-500 hover:shadow-lg hover:-translate-y-2 w-full h-full flex items-center justify-center group-hover:scale-105">
+                            <img 
+                              src={client.logo} 
+                              alt={`${client.name} logo`}
+                              className="max-h-16 max-w-full object-contain transition-all duration-500 opacity-70 group-hover:opacity-100"
+                              style={{
+                                filter: 'brightness(0.8) contrast(1.1)',
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.filter = 'brightness(1) contrast(1)';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.filter = 'brightness(0.8) contrast(1.1)';
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Professional indicators */}
+                <div className="flex justify-center mt-8 space-x-3">
+                  <div className="flex items-center space-x-2 text-sm text-gray-500">
+                    <div className="w-3 h-3 rounded-full border-2 border-gray-300 animate-pulse" style={{borderColor: '#7A2E1D', animationDuration: '2s'}}></div>
+                    <span className="font-medium">200+ Trusted Partners</span>
+                  </div>
+                  <div className="w-px h-4 bg-gray-300 mx-4"></div>
+                  <div className="flex items-center space-x-2 text-sm text-gray-500">
+                    <div className="w-3 h-3 rounded-full border-2 border-gray-300 animate-pulse" style={{borderColor: '#7A2E1D', animationDuration: '2.5s', animationDelay: '0.5s'}}></div>
+                    <span className="font-medium">15+ Years Excellence</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+
+
+
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-on-scroll">
-            <div className="pulse-chip mb-6 inline-flex">
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">05</span>
-              <span>Client Success</span>
+            <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium mb-6">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mr-3" style={{backgroundColor: '#7A2E1D', color: 'white'}}>05</span>
+              <span style={{color: '#1C1C1C'}}>Client Success</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-6">
-              Trusted by Leading Brands
-            </h2>
+       
             
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We're proud to have partnered with industry leaders across Dubai and India, 
@@ -97,44 +161,7 @@ const ClientsTestimonials = () => {
             </p>
           </div>
           
-          {/* Client Logos - Infinite Slider */}
-          <div className="mb-16 animate-on-scroll">
-            <div className="bg-gray-50 rounded-2xl p-8 overflow-hidden">
-              <div className="embla relative" ref={emblaRef}>
-                <div className="embla__container flex">
-                  {infiniteClients.map((client, index) => (
-                    <div 
-                      key={`${client.name}-${index}`} 
-                      className="embla__slide flex-none w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 px-3"
-                    >
-                      <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-500 h-20 flex items-center justify-center group cursor-pointer">
-                        <img 
-                          src={client.logo} 
-                          alt={`${client.name} logo`}
-                          className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Progress indicator */}
-              <div className="flex justify-center mt-6 space-x-2">
-                {clients.map((_, index) => (
-                  <div 
-                    key={index}
-                    className="w-2 h-2 rounded-full bg-gray-300 animate-pulse"
-                    style={{ 
-                      animationDelay: `${index * 0.5}s`,
-                      animationDuration: '2s'
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-          
+       
           {/* Testimonials */}
           <div className="grid lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -146,22 +173,22 @@ const ClientsTestimonials = () => {
                     ))}
                   </div>
                   
-                  <Quote className="w-8 h-8 text-pulse-500 mb-4" />
+                  <Quote className="w-8 h-8 mb-4" style={{color: '#7A2E1D'}} />
                   
                   <p className="text-gray-700 mb-6 leading-relaxed italic">
                     "{testimonial.text}"
                   </p>
                   
                   <div className="flex items-center mt-auto">
-                    <div className="w-12 h-12 bg-pulse-100 rounded-full flex items-center justify-center mr-4">
-                      <div className="w-8 h-8 bg-pulse-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{backgroundColor: 'rgba(122, 46, 29, 0.1)'}}>
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style={{backgroundColor: '#7A2E1D'}}>
                         {testimonial.name.split(' ').map(n => n[0]).join('')}
                       </div>
                     </div>
                     <div>
                       <div className="font-semibold text-gray-900">{testimonial.name}</div>
                       <div className="text-sm text-gray-600">{testimonial.position}</div>
-                      <div className="text-sm text-pulse-600 font-medium">{testimonial.company}</div>
+                      <div className="text-sm font-medium" style={{color: '#7A2E1D'}}>{testimonial.company}</div>
                     </div>
                   </div>
                 </div>
@@ -170,7 +197,7 @@ const ClientsTestimonials = () => {
           </div>
           
           <div className="mt-16 text-center animate-on-scroll">
-            <div className="bg-gradient-to-r from-pulse-50 to-pulse-100 rounded-2xl p-8">
+            <div className="rounded-2xl p-8" style={{background: 'linear-gradient(to right, rgba(122, 46, 29, 0.05), rgba(122, 46, 29, 0.1))'}}>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Join Our Satisfied Clients
               </h3>
@@ -180,7 +207,10 @@ const ClientsTestimonials = () => {
               </p>
               <a 
                 href="#contact" 
-                className="inline-flex items-center px-8 py-4 bg-pulse-500 text-white rounded-full font-medium hover:bg-pulse-600 transition-colors duration-300"
+                className="inline-flex items-center px-8 py-4 text-white rounded-full font-medium transition-colors duration-300"
+                style={{backgroundColor: '#7A2E1D'}}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#5A1E0D'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#7A2E1D'}
               >
                 Get Your Quote Today
               </a>

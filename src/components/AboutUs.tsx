@@ -7,33 +7,16 @@ const AboutUs = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-7xl mx-auto">
           
-          {/* Hero About Section */}
-          <div className="relative mb-20">
-            <div 
-              className="relative py-20 rounded-3xl overflow-hidden"
-              style={{
-                backgroundImage: 'linear-gradient(135deg, rgba(122, 46, 29, 0.95) 0%, rgba(28, 28, 28, 0.85) 100%), url("/projects/Dubai/dubaiHills/3.png")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div className="relative z-10 text-center text-white">
-                <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mb-8">
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mr-3" style={{backgroundColor: '#7A2E1D'}}>02</span>
-                  About Makewood
-                </div>
-                
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  <span className="block">Precision in Design.</span>
-                  <span className="block" style={{color: '#7A2E1D'}}>Power in Execution.</span>
-                </h2>
-                
-                <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                  Crafting exceptional spaces with two decades of expertise, advanced manufacturing facilities, 
-                  and an unwavering commitment to excellence across Dubai and India.
-                </p>
-              </div>
+          {/* About Us Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium mb-6">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mr-3" style={{backgroundColor: '#7A2E1D', color: 'white'}}>02</span>
+              <span style={{color: '#1C1C1C'}}>About Makewood</span>
             </div>
+          
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Crafting exceptional spaces with precision, innovation, and two decades of unwavering commitment to excellence.
+            </p>
           </div>
 
           {/* Main Content Grid */}
@@ -120,52 +103,110 @@ const AboutUs = () => {
             </div>
           </div>
           
-          {/* Vision, Mission, Values */}
-          <div className="bg-gray-50 rounded-3xl p-12 mb-16">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold mb-4" style={{color: '#1C1C1C'}}>Our Foundation</h3>
-              <p className="text-gray-600 max-w-3xl mx-auto">
-                Built on strong values and driven by a clear vision for the future of interior design
-              </p>
+          {/* Vision, Mission, Values - Redesigned */}
+          <div className="relative mb-16">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="w-full h-full" style={{
+                backgroundImage: `radial-gradient(circle at 25% 25%, #7A2E1D 0%, transparent 50%), 
+                                 radial-gradient(circle at 75% 75%, #1C1C1C 0%, transparent 50%)`,
+                backgroundSize: '400px 400px, 300px 300px'
+              }}></div>
             </div>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="animate-on-scroll group text-center">
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-2">
-                  <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center" style={{backgroundColor: '#7A2E1D'}}>
-                    <Eye className="w-8 h-8 text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold mb-4" style={{color: '#1C1C1C'}}>Vision</h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    To be the pioneers and most preferred partners in interior fit-out and furniture 
-                    manufacturing industry, setting new standards for excellence.
-                  </p>
-                </div>
+
+            <div className="relative">
+              <div className="text-center mb-16">
+              
+                <h3 className="text-4xl font-bold mb-6" style={{color: '#1C1C1C'}}>
+                  Built on Excellence,<br />
+                  <span style={{color: '#7A2E1D'}}>Driven by Purpose</span>
+                </h3>
+                <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
+                  Three pillars that define our commitment to crafting exceptional spaces and delivering 
+                  unparalleled service to clients across the globe.
+                </p>
               </div>
               
-              <div className="animate-on-scroll group text-center">
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-2">
-                  <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center" style={{backgroundColor: '#1C1C1C'}}>
-                    <Target className="w-8 h-8 text-white" />
+              <div className="grid lg:grid-cols-3 gap-8">
+                {/* Vision Card */}
+                <div className="animate-on-scroll group">
+                  <div 
+                    className="relative overflow-hidden rounded-3xl p-8 text-white transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl"
+                    style={{
+                      background: 'linear-gradient(135deg, #7A2E1D 0%, #5A1E0D 100%)',
+                      backgroundImage: 'url("/projects/Dubai/furjanDubai/2.png")',
+                      backgroundBlendMode: 'overlay',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-transparent"></div>
+                    <div className="relative z-10">
+                      <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Eye className="w-10 h-10 text-white" />
+                      </div>
+                      <h4 className="text-2xl font-bold mb-4">Vision</h4>
+                      <p className="text-white/90 leading-relaxed text-base">
+                        To be the pioneers and most preferred partners in interior fit-out and furniture 
+                        manufacturing industry, setting new standards for excellence and innovation.
+                      </p>
+                      <div className="mt-6 w-12 h-1 bg-white/40 rounded-full group-hover:w-20 transition-all duration-300"></div>
+                    </div>
                   </div>
-                  <h4 className="text-xl font-bold mb-4" style={{color: '#1C1C1C'}}>Mission</h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    To provide value-added interior build expertise by creating inspiring and innovative 
-                    workplaces, residential, and commercial spaces that exceed expectations.
-                  </p>
                 </div>
-              </div>
-              
-              <div className="animate-on-scroll group text-center">
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-2">
-                  <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center" style={{backgroundColor: '#7A2E1D'}}>
-                    <Heart className="w-8 h-8 text-white" />
+                
+                {/* Mission Card */}
+                <div className="animate-on-scroll group">
+                  <div 
+                    className="relative overflow-hidden rounded-3xl p-8 text-white transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl"
+                    style={{
+                      background: 'linear-gradient(135deg, #1C1C1C 0%, #000000 100%)',
+                      backgroundImage: 'url("/projects/India/samsung/2.png")',
+                      backgroundBlendMode: 'overlay',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-transparent"></div>
+                    <div className="relative z-10">
+                      <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Target className="w-10 h-10 text-white" />
+                      </div>
+                      <h4 className="text-2xl font-bold mb-4">Mission</h4>
+                      <p className="text-white/90 leading-relaxed text-base">
+                        To provide value-added interior build expertise by creating inspiring and innovative 
+                        workplaces, residential, and commercial spaces that exceed expectations.
+                      </p>
+                      <div className="mt-6 w-12 h-1 bg-white/40 rounded-full group-hover:w-20 transition-all duration-300"></div>
+                    </div>
                   </div>
-                  <h4 className="text-xl font-bold mb-4" style={{color: '#1C1C1C'}}>Values</h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    Customer First, Respect, Safety, Commitment, Excellence, and our dedication to 
-                    exceptional service and teamwork in everything we do.
-                  </p>
+                </div>
+                
+                {/* Values Card */}
+                <div className="animate-on-scroll group">
+                  <div 
+                    className="relative overflow-hidden rounded-3xl p-8 text-white transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl"
+                    style={{
+                      background: 'linear-gradient(135deg, #7A2E1D 0%, #5A1E0D 100%)',
+                      backgroundImage: 'url("/projects/India/allianz/3.png")',
+                      backgroundBlendMode: 'overlay',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-transparent"></div>
+                    <div className="relative z-10">
+                      <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Heart className="w-10 h-10 text-white" />
+                      </div>
+                      <h4 className="text-2xl font-bold mb-4">Values</h4>
+                      <p className="text-white/90 leading-relaxed text-base">
+                        Customer First, Respect, Safety, Commitment, Excellence, and our dedication to 
+                        exceptional service and teamwork in everything we do.
+                      </p>
+                      <div className="mt-6 w-12 h-1 bg-white/40 rounded-full group-hover:w-20 transition-all duration-300"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

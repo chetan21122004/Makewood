@@ -83,9 +83,9 @@ const Portfolio = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-on-scroll">
-            <div className="pulse-chip mb-6 inline-flex">
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">04</span>
-              <span>Our Portfolio</span>
+            <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium mb-6">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mr-3" style={{backgroundColor: '#7A2E1D', color: 'white'}}>04</span>
+              <span style={{color: '#1C1C1C'}}>Our Portfolio</span>
             </div>
             
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-6">
@@ -102,11 +102,21 @@ const Portfolio = () => {
                 <button
                   key={filter.key}
                   onClick={() => setActiveFilter(filter.key)}
-                  className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                    activeFilter === filter.key
-                      ? 'bg-pulse-500 text-white shadow-lg'
-                      : 'bg-white text-gray-600 hover:bg-gray-100'
-                  }`}
+                  className={`px-6 py-2 rounded-full font-medium transition-all duration-300`}
+                  style={{
+                    backgroundColor: activeFilter === filter.key ? '#7A2E1D' : 'white',
+                    color: activeFilter === filter.key ? 'white' : '#6B7280'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (activeFilter !== filter.key) {
+                      e.currentTarget.style.backgroundColor = '#F3F4F6';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeFilter !== filter.key) {
+                      e.currentTarget.style.backgroundColor = 'white';
+                    }
+                  }}
                 >
                   {filter.label}
                 </button>
@@ -139,7 +149,7 @@ const Portfolio = () => {
                     
                     <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                       <div className="flex items-center">
-                        <div className="w-2 h-2 bg-pulse-500 rounded-full mr-2"></div>
+                        <div className="w-2 h-2 rounded-full mr-2" style={{backgroundColor: '#7A2E1D'}}></div>
                         {project.area}
                       </div>
                       <div className="flex items-center">
@@ -148,7 +158,20 @@ const Portfolio = () => {
                       </div>
                     </div>
                     
-                    <button className="w-full flex items-center justify-center px-4 py-2 border border-gray-200 rounded-lg text-gray-700 hover:bg-pulse-500 hover:text-white hover:border-pulse-500 transition-all duration-300 group">
+                    <button className="w-full flex items-center justify-center px-4 py-2 border border-gray-200 rounded-lg text-gray-700 transition-all duration-300 group"
+                      style={{
+                        borderColor: '#E5E7EB'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#7A2E1D';
+                        e.currentTarget.style.color = 'white';
+                        e.currentTarget.style.borderColor = '#7A2E1D';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.color = '#374151';
+                        e.currentTarget.style.borderColor = '#E5E7EB';
+                      }}>
                       View Details
                       <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </button>
@@ -161,7 +184,10 @@ const Portfolio = () => {
           <div className="text-center mt-12 animate-on-scroll">
             <a 
               href="#contact" 
-              className="inline-flex items-center px-8 py-4 bg-pulse-500 text-white rounded-full font-medium hover:bg-pulse-600 transition-colors duration-300 group"
+              className="inline-flex items-center px-8 py-4 text-white rounded-full font-medium transition-colors duration-300 group"
+              style={{backgroundColor: '#7A2E1D'}}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#5A1E0D'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#7A2E1D'}
             >
               Start Your Project
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />

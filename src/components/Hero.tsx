@@ -152,7 +152,7 @@ const Hero = () => {
   return (
     <section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden" 
-      id="hero"
+      id="hero" 
     >
       {/* Multi-Image Background Layout */}
       <div className="absolute inset-0">
@@ -232,7 +232,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient  bg-black/25"></div>
         
         {/* Subtle brand color overlay */}
-        <div className="absolute inset-0 bg-pulse-900/15 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gray-900/15 mix-blend-multiply"></div>
         
         {/* Sophisticated pattern overlay for texture */}
         <div className="absolute inset-0 opacity-[0.03]">
@@ -255,11 +255,11 @@ const Hero = () => {
           <div className="text-white space-y-8 order-2 lg:order-1">
             <div 
               className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-white opacity-0 animate-fade-in" 
-              style={{ animationDelay: "0.1s" }}
-            >
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-3 text-xs">01</span>
+                style={{ animationDelay: "0.1s" }}
+              >
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full text-white mr-3 text-xs" style={{backgroundColor: '#7A2E1D'}}>01</span>
               Interior Design & Fitout Excellence
-            </div>
+              </div>
             
           
             
@@ -268,7 +268,7 @@ const Hero = () => {
               className="text-lg sm:text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-2xl opacity-0 animate-fade-in"
             >
               Transforming visions into reality with precision engineering and innovative design. 
-              <span className="block mt-2 text-pulse-300 font-medium">20+ Years | Dubai & India | 500+ Projects</span>
+                  <span className="block mt-2 font-medium" style={{color: 'rgba(255, 180, 120, 0.9)'}}>20+ Years | Dubai & India | 500+ Projects</span>
             </p>
             
             <div 
@@ -277,7 +277,16 @@ const Hero = () => {
             >
               <a 
                 href="#contact" 
-                className="group inline-flex items-center justify-center px-8 py-4 bg-pulse-500 hover:bg-pulse-600 text-white font-semibold rounded-full transition-all duration-300 shadow-2xl hover:shadow-pulse-500/25 hover:scale-105 transform"
+                className="group inline-flex items-center justify-center px-8 py-4 text-white font-semibold rounded-full transition-all duration-300 shadow-2xl hover:scale-105 transform"
+                style={{backgroundColor: '#7A2E1D'}}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#5A1E0D';
+                  e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(122, 46, 29, 0.25)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#7A2E1D';
+                  e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+                }}
               >
                 Get Your Quote
                 <ArrowRight className="ml-3 w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -311,8 +320,8 @@ const Hero = () => {
                          src={project.image}
                          alt={project.title}
                          className="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
-                         style={{ transformStyle: 'preserve-3d' }}
-                       />
+                  style={{ transformStyle: 'preserve-3d' }} 
+                />
                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                        
                        {/* Project Info Card */}
@@ -320,13 +329,13 @@ const Hero = () => {
                          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-xl transform transition-all duration-500">
                            <div className="flex items-center justify-between mb-2">
                              <h3 className="font-bold text-gray-900 text-lg">{project.title}</h3>
-                             <span className="text-pulse-500 text-sm font-semibold">{project.year}</span>
+                             <span className="text-sm font-semibold" style={{color: '#7A2E1D'}}>{project.year}</span>
                            </div>
                            <p className="text-gray-600 text-sm mb-2">{project.subtitle}</p>
                            <div className="flex items-center justify-between">
-                             <span className="text-xs font-medium text-pulse-600">{project.area}</span>
+                             <span className="text-xs font-medium" style={{color: '#7A2E1D'}}>{project.area}</span>
                              <div className="flex items-center space-x-1">
-                               <div className="w-1.5 h-1.5 bg-pulse-500 rounded-full"></div>
+                               <div className="w-1.5 h-1.5 rounded-full" style={{backgroundColor: '#7A2E1D'}}></div>
                                <span className="text-xs text-gray-500">{project.description}</span>
                              </div>
                            </div>
@@ -360,15 +369,18 @@ const Hero = () => {
                      className={cn(
                        "w-2 h-2 rounded-full transition-all duration-300",
                        index === currentProject 
-                         ? "bg-pulse-500 w-8" 
+                         ? "w-8" 
                          : "bg-white/40 hover:bg-white/60"
                      )}
+                     style={{
+                       backgroundColor: index === currentProject ? '#7A2E1D' : undefined
+                     }}
                    />
                  ))}
                </div>
 
                {/* Elegant Floating Elements */}
-               <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-pulse-500/20 to-transparent rounded-full blur-xl animate-pulse"></div>
+               <div className="absolute -top-6 -right-6 w-20 h-20 rounded-full blur-xl animate-pulse" style={{background: 'linear-gradient(135deg, rgba(122, 46, 29, 0.2), transparent)'}}></div>
                <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl"></div>
                
                {/* Sophisticated Corner Accent */}
@@ -383,7 +395,7 @@ const Hero = () => {
             <span className="text-sm font-medium mb-3 group-hover:mb-4 transition-all duration-300">Discover Excellence</span>
             <div className="relative">
               <div className="w-6 h-10 border-2 border-white/20 group-hover:border-white/40 rounded-full flex justify-center transition-all duration-300">
-                <div className="w-1 h-3 bg-pulse-400 rounded-full mt-2 animate-bounce group-hover:bg-pulse-300"></div>
+                <div className="w-1 h-3 rounded-full mt-2 animate-bounce" style={{backgroundColor: '#7A2E1D'}}></div>
               </div>
               <div className="absolute -inset-2 border border-white/10 rounded-full animate-pulse"></div>
             </div>

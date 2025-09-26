@@ -139,7 +139,10 @@
   }
 
   .pulse-chip {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-pulse-100 text-pulse-600 border border-pulse-200;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+    background-color: rgba(122, 46, 29, 0.1);
+    color: #7A2E1D;
+    border: 1px solid rgba(122, 46, 29, 0.2);
   }
   
   .section-container {
@@ -163,15 +166,33 @@
   }
   
   .button-primary {
-    @apply bg-pulse-500 hover:bg-pulse-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98];
+    @apply text-white font-medium py-3 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98];
+    background-color: #7A2E1D;
+  }
+  
+  .button-primary:hover {
+    background-color: #5A1E0D;
   }
 
   .button-secondary {
-    @apply bg-transparent border border-gray-300 hover:border-pulse-500 text-gray-800 hover:text-pulse-500 font-medium py-3 px-6 rounded-full transition-all duration-300;
+    @apply bg-transparent border border-gray-300 text-gray-800 font-medium py-3 px-6 rounded-full transition-all duration-300;
+  }
+  
+  .button-secondary:hover {
+    border-color: #7A2E1D;
+    color: #7A2E1D;
   }
   
   .nav-link {
-    @apply relative text-gray-800 hover:text-pulse-500 py-2 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pulse-500 after:transition-all hover:after:w-full;
+    @apply relative text-gray-800 py-2 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all hover:after:w-full;
+  }
+  
+  .nav-link:hover {
+    color: #7A2E1D;
+  }
+  
+  .nav-link:after {
+    background-color: #7A2E1D;
   }
 }
 
