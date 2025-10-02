@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { MapPin, Calendar, ArrowRight } from "lucide-react";
+import { MapPin, Calendar, ArrowRight, ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+  const navigate = useNavigate();
   
   const projects = [
     {
@@ -13,7 +15,8 @@ const Portfolio = () => {
       completedOn: "April 2024",
       category: "commercial",
       image: "/projects/India/samsung/1.png",
-      description: "Innovation center supporting engineering agility, reflecting Samsung's sleek and future-ready identity with matte black ceilings and frosted acoustic glass partitions."
+      description: "Innovation center supporting engineering agility, reflecting Samsung's sleek and future-ready identity with matte black ceilings and frosted acoustic glass partitions.",
+      slug: "samsung-innovation-center"
     },
     {
       id: 2,
@@ -23,17 +26,19 @@ const Portfolio = () => {
       completedOn: "February 2024",
       category: "commercial",
       image: "/projects/India/allianz/1.png",
-      description: "Modern corporate space designed to reflect ALLIANZ Group's legacy of innovation—balancing executive presence with collaborative openness."
+      description: "Modern corporate space designed to reflect ALLIANZ Group's legacy of innovation—balancing executive presence with collaborative openness.",
+      slug: "allianz-corporate-office"
     },
     {
       id: 3,
-      title: "Luxury Residential Villa",
+      title: "Furjan Villa",
       location: "Furjan, Dubai",
       area: "6,500 sqft",
       completedOn: "March 2024",
       category: "residential",
       image: "/projects/Dubai/furjanDubai/1.png",
-      description: "Designing for lifestyle, comfort & belonging with premium finishes and modern aesthetics creating warm and elegant living spaces."
+      description: "Designing for lifestyle, comfort & belonging with premium finishes and modern aesthetics creating warm and elegant living spaces.",
+      slug: "furjan-villa"
     },
     {
       id: 4,
@@ -43,7 +48,8 @@ const Portfolio = () => {
       completedOn: "January 2023",
       category: "commercial",
       image: "/projects/India/michaelPg/1.png",
-      description: "Designed for quiet focus and discreet collaboration, reflecting hospitality-grade aesthetics for high-stakes interactions."
+      description: "Designed for quiet focus and discreet collaboration, reflecting hospitality-grade aesthetics for high-stakes interactions.",
+      slug: "michael-page-office"
     },
     {
       id: 5,
@@ -53,7 +59,8 @@ const Portfolio = () => {
       completedOn: "January 2024",
       category: "residential",
       image: "/projects/Dubai/dubaiHills/1.png",
-      description: "Luxury residential project combining comfort with sophisticated design elements and contemporary living solutions."
+      description: "Luxury residential project combining comfort with sophisticated design elements and contemporary living solutions.",
+      slug: "dubai-hills-residence"
     },
     {
       id: 6,
@@ -63,7 +70,8 @@ const Portfolio = () => {
       completedOn: "December 2023",
       category: "residential",
       image: "/projects/Dubai/cityWalkDubai/1.png",
-      description: "Modern apartment design with emphasis on natural light and contemporary living with premium interior finishing."
+      description: "Modern apartment design with emphasis on natural light and contemporary living with premium interior finishing.",
+      slug: "city-walk-apartment"
     }
   ];
   
@@ -158,7 +166,9 @@ const Portfolio = () => {
                       </div>
                     </div>
                     
-                    <button className="w-full flex items-center justify-center px-4 py-2 border border-gray-200 rounded-lg text-gray-700 transition-all duration-300 group"
+                    <button 
+                      onClick={() => navigate(`/project/${project.slug}`)}
+                      className="w-full flex items-center justify-center px-4 py-2 border border-gray-200 rounded-lg text-gray-700 transition-all duration-300 group"
                       style={{
                         borderColor: '#E5E7EB'
                       }}
@@ -173,7 +183,7 @@ const Portfolio = () => {
                         e.currentTarget.style.borderColor = '#E5E7EB';
                       }}>
                       View Details
-                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      <ExternalLink className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </button>
                   </div>
                 </div>

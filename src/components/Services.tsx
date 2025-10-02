@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Building, Hammer, Layers, Sofa, Settings, Download, ArrowRight, CheckCircle, Play } from "lucide-react";
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveService((prev) => (prev + 1) % services.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const services = [
     {
@@ -52,18 +59,8 @@ const Services = () => {
   ];
 
   return (
-    <section className="w-full py-5 sm:py-8 bg-white relative overflow-hidden" id="services">
-      {/* Sophisticated Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="w-full h-full" style={{
-          backgroundImage: `linear-gradient(30deg, #7A2E1D 12%, transparent 12.5%, transparent 87%, #7A2E1D 87.5%, #7A2E1D),
-                           linear-gradient(150deg, #7A2E1D 12%, transparent 12.5%, transparent 87%, #7A2E1D 87.5%, #7A2E1D),
-                           linear-gradient(30deg, #7A2E1D 12%, transparent 12.5%, transparent 87%, #7A2E1D 87.5%, #7A2E1D),
-                           linear-gradient(150deg, #7A2E1D 12%, transparent 12.5%, transparent 87%, #7A2E1D 87.5%, #7A2E1D)`,
-          backgroundSize: '80px 140px',
-          backgroundPosition: '0 0, 0 0, 40px 70px, 40px 70px'
-        }}></div>
-      </div>
+    <section className="w-full py-1 pb-0 sm:py-2 bg-white relative overflow-hidden" id="services">
+   
 
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto relative z-10">
         <div className="max-w-7xl mx-auto">
@@ -115,9 +112,9 @@ const Services = () => {
 
             {/* Active Service Display */}
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-              <div className="grid lg:grid-cols-2 gap-0">
+              <div className="grid lg:grid-cols-2 gap-0 min-h-[600px]">
                 {/* Service Image */}
-                <div className="relative h-80 lg:h-96 overflow-hidden">
+                <div className="relative h-full min-h-[600px] overflow-hidden">
                   <img 
                     key={activeService} // Force re-render on change
                     src={services[activeService].image} 

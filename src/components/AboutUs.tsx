@@ -3,12 +3,12 @@ import { ArrowRight, Users, Award, Globe, Clock, Eye, Target, Heart, Building2, 
 
 const AboutUs = () => {
   return (
-    <section className="w-full py-16 sm:py-24 bg-white" id="about">
+    <section className="w-full py-16 sm:py-14 bg-white" id="about">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-7xl mx-auto">
           
           {/* About Us Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-10">
             <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium mb-6">
               <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mr-3" style={{backgroundColor: '#7A2E1D', color: 'white'}}>02</span>
               <span style={{color: '#1C1C1C'}}>About Makewood</span>
@@ -40,19 +40,7 @@ const AboutUs = () => {
                 high-performance environments that optimize productivity and long-term value.
               </p>
 
-              {/* Professional Stats */}
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="bg-gray-50 p-6 rounded-2xl border-l-4" style={{borderColor: '#7A2E1D'}}>
-                  <Clock className="w-8 h-8 mb-3" style={{color: '#7A2E1D'}} />
-                  <div className="text-3xl font-bold mb-1" style={{color: '#1C1C1C'}}>20+</div>
-                  <div className="text-sm text-gray-600 font-medium">Years of Excellence</div>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-2xl border-l-4" style={{borderColor: '#7A2E1D'}}>
-                  <Award className="w-8 h-8 mb-3" style={{color: '#7A2E1D'}} />
-                  <div className="text-3xl font-bold mb-1" style={{color: '#1C1C1C'}}>500+</div>
-                  <div className="text-sm text-gray-600 font-medium">Projects Delivered</div>
-                </div>
-              </div>
+          
               
               <a 
                 href="#portfolio" 
