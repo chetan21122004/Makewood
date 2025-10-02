@@ -83,7 +83,7 @@ const Contact = () => {
   ];
 
   return (
-    <section className="w-full py-16 sm:py-24 bg-white" id="contact">
+    <section className="w-full py-3 sm:py-4 bg-white" id="contact">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-7xl mx-auto">
           

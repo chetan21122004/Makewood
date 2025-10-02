@@ -78,7 +78,7 @@ const ClientsTestimonials = () => {
   ];
 
   return (
-    <section className="w-full py-12 sm:py-20 bg-white" id="testimonials">
+    <section className="w-full py-6 pb-0 sm:py-10 bg-white" id="testimonials">
 
 
 
@@ -196,8 +196,8 @@ const ClientsTestimonials = () => {
             ))}
           </div>
           
-          <div className="mt-16 text-center animate-on-scroll">
-            <div className="rounded-2xl p-8" style={{background: 'linear-gradient(to right, rgba(122, 46, 29, 0.05), rgba(122, 46, 29, 0.1))'}}>
+          <div className="mt-6 text-center animate-on-scroll">
+            <div className="rounded-2xl p-8 " style={{background: 'linear-gradient(to right, rgba(122, 46, 29, 0.05), rgba(122, 46, 29, 0.1))'}}>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Join Our Satisfied Clients
               </h3>

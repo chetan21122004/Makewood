@@ -165,7 +165,7 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section className="w-full py-12 sm:py-20 bg-gray-50" id="portfolio">
+    <section className="w-full py-6 sm:py-10 bg-white" id="portfolio">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-12 animate-on-scroll px-4 sm:px-0">
@@ -240,7 +240,7 @@ const Portfolio = () => {
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {filteredProjects.map((project, index) => (
               <div key={project.id} className="animate-on-scroll group">
-                <div className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-elegant transition-all duration-500 hover:-translate-y-2">
+                <div className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-elegant border  transition-all duration-500 hover:-translate-y-2">
                   <div className="relative overflow-hidden">
                     <img 
                       src={project.image} 
