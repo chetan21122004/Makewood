@@ -334,21 +334,21 @@ const Hero = () => {
                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                        
                              {/* Project Info Card */}
-                             <div className="absolute bottom-6 left-6 right-6">
+                             <div className="absolute bottom-4  left-4 right-4">
                                <div 
-                                 className="bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-xl transform transition-all duration-500 cursor-pointer hover:bg-white"
+                                 className="bg-white/95 backdrop-blur-sm rounded-xl p-2 shadow-xl transform transition-all duration-500 cursor-pointer hover:bg-white"
                                  onClick={() => navigate(`/project/${project.slug}`)}
                                >
-                                 <div className="flex items-center justify-between mb-2">
-                                   <h3 className="font-bold text-gray-900 text-lg">{project.title}</h3>
-                                   <span className="text-sm font-semibold" style={{color: '#7A2E1D'}}>{project.year}</span>
+                                 <div className="flex items-center justify-between mb-1.5">
+                                   <h3 className="font-bold text-gray-900 text-base">{project.title}</h3>
+                                   <span className="text-[12px] font-semibold" style={{color: '#7A2E1D'}}>{project.year}</span>
                                  </div>
-                                 <p className="text-gray-600 text-sm mb-2">{project.subtitle}</p>
+                                 <p className="text-gray-600 text-[13px] mb-1.5">{project.subtitle}</p>
                                  <div className="flex items-center justify-between">
-                                   <span className="text-xs font-medium" style={{color: '#7A2E1D'}}>{project.area}</span>
+                                   <span className="text-[12px] font-medium" style={{color: '#7A2E1D'}}>{project.area}</span>
                                    <div className="flex items-center space-x-1">
-                                     <div className="w-1.5 h-1.5 rounded-full" style={{backgroundColor: '#7A2E1D'}}></div>
-                                     <span className="text-xs text-gray-500">{project.description}</span>
+                                     <div className="w-1 h-1 rounded-full" style={{backgroundColor: '#7A2E1D'}}></div>
+                                     <span className="text-[12px] text-gray-500">{project.description}</span>
                                    </div>
                                  </div>
                                </div>
@@ -372,24 +372,6 @@ const Hero = () => {
                  </button>
                </div>
 
-               {/* Dot Indicators */}
-               <div className="flex justify-center mt-6 space-x-2">
-                 {featuredProjects.map((_, index) => (
-                   <button
-                     key={index}
-                     onClick={() => goToProject(index)}
-                     className={cn(
-                       "w-2 h-2 rounded-full transition-all duration-300",
-                       index === currentProject 
-                         ? "w-8" 
-                         : "bg-white/40 hover:bg-white/60"
-                     )}
-                     style={{
-                       backgroundColor: index === currentProject ? '#7A2E1D' : undefined
-                     }}
-                   />
-                 ))}
-               </div>
 
                {/* Elegant Floating Elements */}
                <div className="absolute -top-6 -right-6 w-20 h-20 rounded-full blur-xl animate-pulse" style={{background: 'linear-gradient(135deg, rgba(122, 46, 29, 0.2), transparent)'}}></div>

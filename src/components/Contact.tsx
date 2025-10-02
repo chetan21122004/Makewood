@@ -93,11 +93,7 @@ const Contact = () => {
               <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold mr-4" style={{backgroundColor: '#7A2E1D', color: 'white'}}>06</span>
               <span style={{color: '#1C1C1C'}} className="font-semibold">Let's Connect</span>
             </div>
-            
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8" style={{color: '#1C1C1C'}}>
-              Ready to Transform<br />
-              <span style={{color: '#7A2E1D'}}>Your Space?</span>
-            </h2>
+          
             
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-4">
               Partner with Dubai and India's premier interior design specialists. From initial consultation 
