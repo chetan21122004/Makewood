@@ -161,9 +161,9 @@ const Hero = () => {
       id="hero" 
     >
       {/* Multi-Image Background Layout */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 ">
         {/* Dynamic Image Mosaic Background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 ">
           {/* Mobile: 2 images side by side */}
           <div className="lg:hidden grid grid-cols-2 h-full gap-1">
             <div 
@@ -203,9 +203,9 @@ const Hero = () => {
           </div>
           
           {/* Alternative: 5-column layout for ultrawide screens */}
-          <div className="hidden 2xl:grid 2xl:grid-cols-5 h-full  lg:hidden">
+          <div className="hidden 2xl:grid  2xl:grid-cols-5 h-full  lg:hidden">
             <div 
-              className="relative bg-cover bg-center"
+              className="relative bg-cover  bg-center"
               style={{
                 backgroundImage: 'url("/bgimgs/1.JPG")',
               }}
@@ -238,7 +238,7 @@ const Hero = () => {
         </div>
         
         {/* Professional Overlay */}
-        <div className="absolute inset-0 bg-gradient  bg-black/25"></div>
+        <div className="absolute inset-0 bg-gradient  bg-black/60"></div>
         
         {/* Subtle brand color overlay */}
         <div className="absolute inset-0 bg-gray-900/15 mix-blend-multiply"></div>
