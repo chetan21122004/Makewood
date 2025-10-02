@@ -66,30 +66,28 @@ const Services = () => {
         <div className="max-w-7xl mx-auto">
           
           {/* Sophisticated Services Header */}
-          <div className="text-center mb-24">
-            <div className="inline-flex items-center px-6 py-3 bg-gray-50 rounded-full text-sm font-medium mb-8 shadow-sm border border-gray-100">
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold mr-4" style={{backgroundColor: '#7A2E1D', color: 'white'}}>03</span>
+          <div className="text-center mb-12 sm:mb-16 md:mb-24">
+            <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gray-50 rounded-full text-sm font-medium mb-6 sm:mb-8 shadow-sm border border-gray-100">
+              <span className="inline-flex items-center justify-center w-6 sm:w-7 h-6 sm:h-7 rounded-full text-xs font-bold mr-3 sm:mr-4" style={{backgroundColor: '#7A2E1D', color: 'white'}}>03</span>
               <span style={{color: '#1C1C1C'}} className="font-semibold">Expertise & Solutions</span>
             </div>
             
-           
-            
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-4">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-4">
               From architectural vision to final execution, we deliver integrated solutions that redefine spaces 
               across residential, commercial, and hospitality environments.
             </p>
-            <div className="w-24 h-1 mx-auto rounded-full" style={{backgroundColor: '#7A2E1D'}}></div>
+            <div className="w-16 sm:w-24 h-1 mx-auto rounded-full" style={{backgroundColor: '#7A2E1D'}}></div>
           </div>
           
           {/* Interactive Services Showcase */}
           <div className="mb-20">
             {/* Service Navigation */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2">
               {services.map((service, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveService(index)}
-                  className={`group relative px-8 py-4 rounded-full font-semibold transition-all duration-500 ${
+                  className={`group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all duration-500 text-sm sm:text-base ${
                     activeService === index 
                       ? 'text-white shadow-xl transform scale-105' 
                       : 'text-gray-600 bg-gray-50 hover:bg-gray-100 border border-gray-200'
@@ -99,9 +97,10 @@ const Services = () => {
                   }}
                 >
                   <div className="flex items-center">
-                    <span className="mr-3 text-sm font-bold opacity-60">{service.id}</span>
-{React.createElement(service.icon, { className: "w-5 h-5 mr-3" })}
-                    {service.title}
+                    <span className="mr-2 sm:mr-3 text-xs sm:text-sm font-bold opacity-60">{service.id}</span>
+{React.createElement(service.icon, { className: "w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" })}
+                    <span className="hidden sm:inline">{service.title}</span>
+                    <span className="sm:hidden">{service.title.split(' ')[0]}</span>
                   </div>
                   {activeService === index && (
                     <div className="absolute inset-0 rounded-full animate-pulse" style={{backgroundColor: 'rgba(122, 46, 29, 0.3)'}}></div>
@@ -112,9 +111,9 @@ const Services = () => {
 
             {/* Active Service Display */}
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-              <div className="grid lg:grid-cols-2 gap-0 min-h-[600px]">
+              <div className="grid lg:grid-cols-2 gap-0 min-h-[450px]">
                 {/* Service Image */}
-                <div className="relative h-full min-h-[600px] overflow-hidden">
+                <div className="relative h-full min-h-[450px] overflow-hidden">
                   <img 
                     key={activeService} // Force re-render on change
                     src={services[activeService].image} 
@@ -124,32 +123,32 @@ const Services = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                   
                   {/* Floating Service Badge */}
-                  <div className="absolute top-8 left-8">
-                    <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/30">
+                  <div className="absolute top-6 left-6">
+                    <div className="bg-white/20 backdrop-blur-md rounded-2xl p-3 border border-white/30">
                       <div className="flex items-center text-white">
-{React.createElement(services[activeService].icon, { className: "w-8 h-8 mr-3" })}
+{React.createElement(services[activeService].icon, { className: "w-6 h-6 mr-2" })}
                         <div>
-                          <div className="font-bold text-lg">{services[activeService].title}</div>
-                          <div className="text-sm opacity-90">{services[activeService].subtitle}</div>
+                          <div className="font-bold text-base">{services[activeService].title}</div>
+                          <div className="text-xs opacity-90">{services[activeService].subtitle}</div>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Professional Stats Overlay */}
-                  <div className="absolute bottom-8 right-8">
-                    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                      <div className="grid grid-cols-3 gap-4 text-center">
+                  <div className="absolute bottom-6 right-6">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                      <div className="grid grid-cols-3 gap-3 text-center">
                         <div>
-                          <div className="font-bold text-lg" style={{color: '#7A2E1D'}}>{services[activeService].stats.projects}</div>
+                          <div className="font-bold text-base" style={{color: '#7A2E1D'}}>{services[activeService].stats.projects}</div>
                           <div className="text-xs text-gray-600">Projects</div>
                         </div>
                         <div>
-                          <div className="font-bold text-lg" style={{color: '#7A2E1D'}}>{services[activeService].stats.timeline}</div>
+                          <div className="font-bold text-base" style={{color: '#7A2E1D'}}>{services[activeService].stats.timeline}</div>
                           <div className="text-xs text-gray-600">Timeline</div>
                         </div>
                         <div>
-                          <div className="font-bold text-lg" style={{color: '#7A2E1D'}}>{services[activeService].stats.satisfaction}</div>
+                          <div className="font-bold text-base" style={{color: '#7A2E1D'}}>{services[activeService].stats.satisfaction}</div>
                           <div className="text-xs text-gray-600">Satisfaction</div>
                         </div>
                       </div>
@@ -158,50 +157,35 @@ const Services = () => {
                 </div>
                 
                 {/* Service Content */}
-                <div className="p-12 flex flex-col justify-center">
-                  <div className="mb-8">
-                    <div className="flex items-center mb-4">
-                      <span className="text-2xl font-bold mr-4 opacity-30" style={{color: '#7A2E1D'}}>{services[activeService].id}</span>
+                <div className="p-9 flex flex-col justify-center">
+                  <div className="mb-6">
+                    <div className="flex items-center mb-3">
+                      <span className="text-xl font-bold mr-3 opacity-30" style={{color: '#7A2E1D'}}>{services[activeService].id}</span>
                       <div>
-                        <h3 className="text-3xl font-bold mb-2" style={{color: '#1C1C1C'}}>{services[activeService].title}</h3>
-                        <p className="text-lg font-semibold" style={{color: '#7A2E1D'}}>{services[activeService].subtitle}</p>
+                        <h3 className="text-2xl font-bold mb-1" style={{color: '#1C1C1C'}}>{services[activeService].title}</h3>
+                        <p className="text-base font-semibold" style={{color: '#7A2E1D'}}>{services[activeService].subtitle}</p>
                       </div>
                     </div>
                   </div>
                   
-                  <p className="text-gray-700 mb-6 leading-relaxed text-lg">
+                  <p className="text-gray-700 mb-4 leading-relaxed text-base">
                     {services[activeService].description}
                   </p>
 
-                  <p className="text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-gray-600 mb-6 leading-relaxed">
                     {services[activeService].detailedDescription}
                   </p>
                   
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-2 gap-3 mb-6">
                     {services[activeService].features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center text-gray-600">
-                        <div className="w-2 h-2 rounded-full mr-3 flex-shrink-0" style={{backgroundColor: '#7A2E1D'}}></div>
-                        <span className="font-medium text-sm">{feature}</span>
+                        <div className="w-1.5 h-1.5 rounded-full mr-2 flex-shrink-0" style={{backgroundColor: '#7A2E1D'}}></div>
+                        <span className="font-medium text-xs">{feature}</span>
                       </div>
                     ))}
                   </div>
                   
-                  <div className="flex gap-4">
-                    <button 
-                      className="inline-flex items-center text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-                      style={{backgroundColor: '#7A2E1D'}}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#5A1E0D'}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#7A2E1D'}
-                    >
-                      Explore Details
-                      <ArrowRight className="ml-3 w-5 h-5" />
-                    </button>
-                    <button className="inline-flex items-center text-gray-700 px-6 py-4 rounded-full font-medium border-2 border-gray-200 hover:border-gray-300 transition-all duration-300">
-                      <Play className="mr-2 w-4 h-4" />
-                      View Process
-                    </button>
-                  </div>
-                </div>
+               </div>
               </div>
             </div>
           </div>
