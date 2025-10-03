@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Calendar, MapPin, Ruler, Users, Clock, Star, X, ChevronLeft, ChevronRight } from "lucide-react";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 interface ProjectImage {
   id: number;
@@ -224,8 +226,8 @@ const ProjectDetail: React.FC = () => {
   }
 
   const categories = ["all", ...Array.from(new Set(project.images.map(img => img.category)))];
-  const filteredImages = selectedCategory === "all" 
-    ? project.images 
+  const filteredImages = selectedCategory === "all"
+    ? project.images
     : project.images.filter(img => img.category === selectedCategory);
 
   const openGallery = (index: number) => {
@@ -246,6 +248,8 @@ const ProjectDetail: React.FC = () => {
   };
 
   return (
+  <div className="">
+{/* <Navbar/> */}
     <div className="min-h-screen bg-white">
       {/* Professional Header */}
       <div className="bg-white border-b border-gray-200">
@@ -264,16 +268,16 @@ const ProjectDetail: React.FC = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               <div>
                 <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm font-medium mb-6">
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mr-3" style={{backgroundColor: '#7A2E1D', color: 'white'}}>
+                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mr-3" style={{ backgroundColor: '#7A2E1D', color: 'white' }}>
                     {project.id.toString().padStart(2, '0')}
                   </span>
-                  <span style={{color: '#1C1C1C'}}>{project.category}</span>
+                  <span style={{ color: '#1C1C1C' }}>{project.category}</span>
                 </div>
-                
-                <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight" style={{color: '#1C1C1C'}}>
+
+                <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight" style={{ color: '#1C1C1C' }}>
                   {project.title}
                 </h1>
-                
+
                 <p className="text-xl text-gray-600 leading-relaxed mb-8">
                   {project.description}
                 </p>
@@ -281,28 +285,28 @@ const ProjectDetail: React.FC = () => {
                 {/* Project Quick Info */}
                 <div className="grid grid-cols-2 gap-6">
                   <div className="flex items-center text-gray-700">
-                    <MapPin className="w-5 h-5 mr-3" style={{color: '#7A2E1D'}} />
+                    <MapPin className="w-5 h-5 mr-3" style={{ color: '#7A2E1D' }} />
                     <div>
                       <div className="text-sm text-gray-500">Location</div>
                       <div className="font-medium">{project.location}</div>
                     </div>
                   </div>
                   <div className="flex items-center text-gray-700">
-                    <Ruler className="w-5 h-5 mr-3" style={{color: '#7A2E1D'}} />
+                    <Ruler className="w-5 h-5 mr-3" style={{ color: '#7A2E1D' }} />
                     <div>
                       <div className="text-sm text-gray-500">Area</div>
                       <div className="font-medium">{project.area}</div>
                     </div>
                   </div>
                   <div className="flex items-center text-gray-700">
-                    <Calendar className="w-5 h-5 mr-3" style={{color: '#7A2E1D'}} />
+                    <Calendar className="w-5 h-5 mr-3" style={{ color: '#7A2E1D' }} />
                     <div>
                       <div className="text-sm text-gray-500">Completed</div>
                       <div className="font-medium">{project.completedOn}</div>
                     </div>
                   </div>
                   <div className="flex items-center text-gray-700">
-                    <Clock className="w-5 h-5 mr-3" style={{color: '#7A2E1D'}} />
+                    <Clock className="w-5 h-5 mr-3" style={{ color: '#7A2E1D' }} />
                     <div>
                       <div className="text-sm text-gray-500">Duration</div>
                       <div className="font-medium">{project.duration}</div>
@@ -313,8 +317,8 @@ const ProjectDetail: React.FC = () => {
 
               {/* Main Project Image */}
               <div className="relative">
-                <img 
-                  src={project.mainImage} 
+                <img
+                  src={project.mainImage}
                   alt={project.title}
                   className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-lg"
                 />
@@ -328,27 +332,27 @@ const ProjectDetail: React.FC = () => {
       <div className="py-16 lg:py-24">
         <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
           <div className="max-w-7xl mx-auto">
-            
+
             {/* Project Stats */}
             <div className="grid md:grid-cols-4 gap-8 mb-16">
               <div className="text-center p-6 bg-gray-50 rounded-2xl">
-                <Users className="w-8 h-8 mx-auto mb-4" style={{color: '#7A2E1D'}} />
-                <div className="text-2xl font-bold mb-2" style={{color: '#1C1C1C'}}>{project.team}</div>
+                <Users className="w-8 h-8 mx-auto mb-4" style={{ color: '#7A2E1D' }} />
+                <div className="text-2xl font-bold mb-2" style={{ color: '#1C1C1C' }}>{project.team}</div>
                 <div className="text-sm text-gray-600">Team Size</div>
               </div>
               <div className="text-center p-6 bg-gray-50 rounded-2xl">
-                <Ruler className="w-8 h-8 mx-auto mb-4" style={{color: '#7A2E1D'}} />
-                <div className="text-2xl font-bold mb-2" style={{color: '#1C1C1C'}}>{project.area}</div>
+                <Ruler className="w-8 h-8 mx-auto mb-4" style={{ color: '#7A2E1D' }} />
+                <div className="text-2xl font-bold mb-2" style={{ color: '#1C1C1C' }}>{project.area}</div>
                 <div className="text-sm text-gray-600">Total Area</div>
               </div>
               <div className="text-center p-6 bg-gray-50 rounded-2xl">
-                <Clock className="w-8 h-8 mx-auto mb-4" style={{color: '#7A2E1D'}} />
-                <div className="text-2xl font-bold mb-2" style={{color: '#1C1C1C'}}>{project.duration}</div>
+                <Clock className="w-8 h-8 mx-auto mb-4" style={{ color: '#7A2E1D' }} />
+                <div className="text-2xl font-bold mb-2" style={{ color: '#1C1C1C' }}>{project.duration}</div>
                 <div className="text-sm text-gray-600">Duration</div>
               </div>
               <div className="text-center p-6 bg-gray-50 rounded-2xl">
-                <Star className="w-8 h-8 mx-auto mb-4" style={{color: '#7A2E1D'}} />
-                <div className="text-2xl font-bold mb-2" style={{color: '#1C1C1C'}}>{project.client}</div>
+                <Star className="w-8 h-8 mx-auto mb-4" style={{ color: '#7A2E1D' }} />
+                <div className="text-2xl font-bold mb-2" style={{ color: '#1C1C1C' }}>{project.client}</div>
                 <div className="text-sm text-gray-600">Client</div>
               </div>
             </div>
@@ -356,23 +360,23 @@ const ProjectDetail: React.FC = () => {
             {/* Project Story */}
             <div className="grid lg:grid-cols-2 gap-16 mb-20">
               <div>
-                <h2 className="text-3xl font-bold mb-8" style={{color: '#1C1C1C'}}>The Challenge</h2>
+                <h2 className="text-3xl font-bold mb-8" style={{ color: '#1C1C1C' }}>The Challenge</h2>
                 <p className="text-gray-700 leading-relaxed mb-8 text-lg">
                   {project.challenge}
                 </p>
-                
-                <h3 className="text-2xl font-bold mb-6" style={{color: '#1C1C1C'}}>Our Solution</h3>
+
+                <h3 className="text-2xl font-bold mb-6" style={{ color: '#1C1C1C' }}>Our Solution</h3>
                 <p className="text-gray-700 leading-relaxed text-lg">
                   {project.solution}
                 </p>
               </div>
-              
+
               <div>
-                <h3 className="text-2xl font-bold mb-8" style={{color: '#1C1C1C'}}>Key Features</h3>
+                <h3 className="text-2xl font-bold mb-8" style={{ color: '#1C1C1C' }}>Key Features</h3>
                 <div className="space-y-4">
                   {project.features.map((feature, index) => (
                     <div key={index} className="flex items-start">
-                      <div className="w-2 h-2 rounded-full mt-3 mr-4 flex-shrink-0" style={{backgroundColor: '#7A2E1D'}}></div>
+                      <div className="w-2 h-2 rounded-full mt-3 mr-4 flex-shrink-0" style={{ backgroundColor: '#7A2E1D' }}></div>
                       <span className="text-gray-700 text-lg">{feature}</span>
                     </div>
                   ))}
@@ -383,11 +387,11 @@ const ProjectDetail: React.FC = () => {
             {/* Image Gallery */}
             <div className="mb-16">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold mb-6" style={{color: '#1C1C1C'}}>Project Gallery</h2>
+                <h2 className="text-3xl font-bold mb-6" style={{ color: '#1C1C1C' }}>Project Gallery</h2>
                 <p className="text-gray-600 max-w-2xl mx-auto mb-8">
                   Explore the detailed views of this project showcasing our craftsmanship and attention to detail.
                 </p>
-                
+
                 {/* Category Filter */}
                 <div className="flex flex-wrap justify-center gap-3">
                   {categories.map((category) => (
@@ -406,17 +410,17 @@ const ProjectDetail: React.FC = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Gallery Grid */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredImages.map((image, index) => (
-                  <div 
-                    key={image.id} 
+                  <div
+                    key={image.id}
                     className="relative group cursor-pointer overflow-hidden rounded-2xl"
                     onClick={() => openGallery(index)}
                   >
-                    <img 
-                      src={image.url} 
+                    <img
+                      src={image.url}
                       alt={image.alt}
                       className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                     />
@@ -432,16 +436,16 @@ const ProjectDetail: React.FC = () => {
 
             {/* CTA Section */}
             <div className="text-center bg-gray-50 rounded-3xl p-12">
-              <h3 className="text-3xl font-bold mb-6" style={{color: '#1C1C1C'}}>
+              <h3 className="text-3xl font-bold mb-6" style={{ color: '#1C1C1C' }}>
                 Ready to Start Your Project?
               </h3>
               <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
                 Let's discuss how we can bring your vision to life with the same attention to detail and excellence.
               </p>
-              <button 
+              <button
                 onClick={() => navigate('/contact')}
                 className="inline-flex items-center px-8 py-4 text-white rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-                style={{backgroundColor: '#7A2E1D'}}
+                style={{ backgroundColor: '#7A2E1D' }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#5A1E0D'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#7A2E1D'}
               >
@@ -462,24 +466,24 @@ const ProjectDetail: React.FC = () => {
           >
             <X className="w-8 h-8" />
           </button>
-          
+
           <button
             onClick={prevImage}
             className="absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
           >
             <ChevronLeft className="w-8 h-8" />
           </button>
-          
+
           <button
             onClick={nextImage}
             className="absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
           >
             <ChevronRight className="w-8 h-8" />
           </button>
-          
+
           <div className="max-w-5xl max-h-[90vh] mx-8">
-            <img 
-              src={filteredImages[selectedImageIndex]?.url} 
+            <img
+              src={filteredImages[selectedImageIndex]?.url}
               alt={filteredImages[selectedImageIndex]?.alt}
               className="w-full h-full object-contain"
             />
@@ -495,6 +499,9 @@ const ProjectDetail: React.FC = () => {
         </div>
       )}
     </div>
+    <Footer/>
+  </div>
+
   );
 };
 

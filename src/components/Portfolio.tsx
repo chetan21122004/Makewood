@@ -174,9 +174,7 @@ const Portfolio = () => {
               <span style={{color: '#1C1C1C'}}>Our Portfolio</span>
             </div>
             
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-4 sm:mb-6">
-              Where Craft Breathes
-            </h2>
+       
             
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
               Explore our portfolio of exceptional interior projects across Dubai, India, and beyond. 
