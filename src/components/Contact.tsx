@@ -88,7 +88,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto">
           
           {/* Contact Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-10">
             <div className="inline-flex items-center px-6 py-3 bg-gray-50 rounded-full text-sm font-medium mb-8 shadow-sm border border-gray-100">
               <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold mr-4" style={{backgroundColor: '#7A2E1D', color: 'white'}}>06</span>
               <span style={{color: '#1C1C1C'}} className="font-semibold">Let's Connect</span>
@@ -102,20 +102,7 @@ const Contact = () => {
             <div className="w-24 h-1 mx-auto rounded-full" style={{backgroundColor: '#7A2E1D'}}></div>
           </div>
           
-          {/* Professional Stats Section */}
-          <div className="grid md:grid-cols-4 gap-8 mb-20">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="p-6 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-all duration-300 group-hover:-translate-y-2">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center" style={{backgroundColor: 'rgba(122, 46, 29, 0.1)'}}>
-                    <stat.icon className="w-8 h-8" style={{color: '#7A2E1D'}} />
-                  </div>
-                  <div className="text-3xl font-bold mb-2" style={{color: '#1C1C1C'}}>{stat.value}</div>
-                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+        
 
           {/* Main Contact Grid */}
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
