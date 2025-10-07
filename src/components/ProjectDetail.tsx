@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Calendar, MapPin, Ruler, Users, Clock, Star, X, ChevronLeft, ChevronRight } from "lucide-react";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import Layout from "./Layout";
 
 interface ProjectImage {
   id: number;
@@ -248,8 +247,7 @@ const ProjectDetail: React.FC = () => {
   };
 
   return (
-  <div className="">
-{/* <Navbar/> */}
+  <Layout>
     <div className="min-h-screen bg-white">
       {/* Professional Header */}
       <div className="bg-white border-b border-gray-200">
@@ -499,9 +497,7 @@ const ProjectDetail: React.FC = () => {
         </div>
       )}
     </div>
-    <Footer/>
-  </div>
-
+  </Layout>
   );
 };
 

@@ -246,6 +246,9 @@ const Hero = () => {
               nextEl: '.swiper-button-next-desktop',
               prevEl: '.swiper-button-prev-desktop',
             }}
+            style={{
+              filter: 'brightness(1.1) contrast(1.1)',
+            }}
             className="h-full w-full"
           >
             <SwiperSlide>
@@ -316,11 +319,11 @@ const Hero = () => {
       </div>
 
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-end min-h-screen" ref={containerRef}>
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center w-full pb-2 sm:pb-6 lg:pb-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative sm:top-5 sm:right-14 z-10 flex items-end min-h-screen" ref={containerRef}>
+        <div className=" w-fit  gap-8 lg:gap-20 items-center  p-2 sm:pb-6 lg:pb-10">
 
           {/* Content Section */}
-          <div className="text-white pl-4 space-y-6 sm:space-y-8 order-2 lg:order-1 bg-black/40 p-4 pr-0 rounded-2xl  ">
+          <div className="text-white  space-y-6 sm:space-y-8 order-2 lg:order-1 bg-black/40 p-4  rounded-2xl  ">
             <div
               className="hero-badge inline-flex items-center px-3 sm:px-4 py-2 bg-white/10s backdrop-blur-sm border border-white/20 rounded-full text-xs sm:text-sm font-medium text-white opacity-0"
             >
@@ -329,7 +332,7 @@ const Hero = () => {
             </div>
 
             <p
-              className="hero-description text-lg sm:text-2xl lg:text-4xl text-gray-200 leading-relaxed  w-full opacity-0"
+              className="hero-description text-lg sm:text-2xl lg:text-4xl text-gray-200 leading-relaxed   w-full opacity-0"
             >
               Crafting dreams with innovative design.
               <span className="block mt-2 font-medium text-base sm:text-2xl" style={{ color: 'rgba(255, 180, 120, 0.9)' }}>20+ Years | Dubai & India | 500+ Projects</span>

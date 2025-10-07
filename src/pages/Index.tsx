@@ -1,6 +1,5 @@
 
 import React, { useEffect } from "react";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
 import AboutUs from "@/components/AboutUs";
@@ -8,7 +7,7 @@ import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import ClientsTestimonials from "@/components/ClientsTestimonials";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 
 const Index = () => {
   // Initialize intersection observer to detect when elements enter viewport
@@ -57,9 +56,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main className="space-y-4 sm:space-y-8">
+    <Layout>
+      <div className="space-y-4 sm:space-y-8">
         <Hero />
         <ClientLogos />
         <AboutUs />
@@ -67,9 +65,8 @@ const Index = () => {
         <Portfolio />
         <ClientsTestimonials />
         <Contact />
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 };
 

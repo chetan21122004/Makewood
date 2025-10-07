@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import AutoPlay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 const ClientLogos = () => {
   const clients = [
@@ -20,20 +20,21 @@ const ClientLogos = () => {
   // Duplicate clients for infinite effect
   const infiniteClients = [...clients, ...clients];
 
-  const autoplayOptions = {
-    delay: 3000,
-    stopOnInteraction: false,
-    stopOnMouseEnter: true,
-  };
-
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { 
+    {
       loop: true,
       align: 'start',
-      slidesToScroll: 1,
-      containScroll: 'trimSnaps',
+      dragFree: false,
     },
-    [AutoPlay(autoplayOptions)]
+    [
+      AutoScroll({
+        speed: 2, // Adjust speed (lower = slower)
+        startDelay: 0,
+        direction: 'forward',
+        stopOnInteraction: false,
+        stopOnMouseEnter: false,
+      }),
+    ]
   );
 
   const scrollPrev = useCallback(() => {
@@ -67,20 +68,15 @@ const ClientLogos = () => {
                     className="embla__slide flex-none w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/8 px-4"
                   >
                     <div className="group cursor-pointer h-24 flex items-center justify-center">
-                      <div className="transition-all duration-500 hover:shadow-lg hover:-translate-y-2 w-full h-full flex items-center justify-center group-hover:scale-105">
+                      <div className="transition-all duration-500 hover:shadow hover:-translate-y-1 w-full h-full flex items-center justify-center group-hover:scale-105">
                         <img 
                           src={client.logo} 
                           alt={`${client.name} logo`}
-                          className="max-h-16 max-w-full object-contain transition-all duration-500 opacity-70 group-hover:opacity-100"
+                          className="max-h-16 max-w-full object-contain transition-all duration-500 opacity-100"
                           style={{
-                            filter: 'brightness(0.8) contrast(1.1)',
+                            filter: 'brightness(1) contrast(1)',
                           }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.filter = 'brightness(1) contrast(1)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.filter = 'brightness(0.8) contrast(1.1)';
-                          }}
+                        
                         />
                       </div>
                     </div>
@@ -88,6 +84,9 @@ const ClientLogos = () => {
                 ))}
               </div>
             </div>
+            
+            
+           
             
             {/* Professional indicators */}
             <div className="flex justify-center mt-8 space-x-3">

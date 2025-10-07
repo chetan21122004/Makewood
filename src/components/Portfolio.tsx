@@ -165,7 +165,7 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section className="w-full py-6 sm:py-10 bg-white" id="portfolio">
+    <section className="w-full py-6 sm:py-10 pt-0 bg-white" id="portfolio">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-12 animate-on-scroll px-4 sm:px-0">
@@ -176,36 +176,12 @@ const Portfolio = () => {
             
        
             
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto ">
               Explore our portfolio of exceptional interior projects across Dubai, India, and beyond. 
               Each space tells a unique story of design excellence and precision execution.
             </p>
             
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-              {filters.map((filter) => (
-                <button
-                  key={filter.key}
-                  onClick={() => setActiveFilter(filter.key)}
-                  className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300`}
-                  style={{
-                    backgroundColor: activeFilter === filter.key ? '#7A2E1D' : 'white',
-                    color: activeFilter === filter.key ? 'white' : '#6B7280'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (activeFilter !== filter.key) {
-                      e.currentTarget.style.backgroundColor = '#F3F4F6';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeFilter !== filter.key) {
-                      e.currentTarget.style.backgroundColor = 'white';
-                    }
-                  }}
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
+           
           </div>
           
           {/* Mobile Carousel */}

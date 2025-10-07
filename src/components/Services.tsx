@@ -3,13 +3,24 @@ import { Building, Hammer, Layers, Sofa, Settings, Download, ArrowRight, CheckCi
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveService((prev) => (prev + 1) % services.length);
+      handleServiceChange((activeService + 1) % services.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [activeService]);
+
+  const handleServiceChange = (newIndex: number) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveService(newIndex);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 50);
+    }, 500);
+  };
 
   const services = [
     {
@@ -80,16 +91,16 @@ const Services = () => {
           </div>
           
           {/* Interactive Services Showcase */}
-          <div className="mb-20">
+          <div className="mb-2">
             {/* Service Navigation */}
             <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2">
               {services.map((service, index) => (
                 <button
                   key={index}
-                  onClick={() => setActiveService(index)}
+                  onClick={() => handleServiceChange(index)}
                   className={`group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all duration-500 text-sm sm:text-base ${
                     activeService === index 
-                      ? 'text-white shadow-xl transform scale-105' 
+                      ? 'text-white  ' 
                       : 'text-gray-600 bg-gray-50 hover:bg-gray-100 border border-gray-200'
                   }`}
                   style={{
@@ -112,22 +123,39 @@ const Services = () => {
             {/* Active Service Display */}
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
               <div className="grid lg:grid-cols-2 gap-0 min-h-[450px]">
-                {/* Service Image */}
+                {/* Service Image with Smooth Transition */}
                 <div className="relative h-full min-h-[450px] overflow-hidden">
-                  <img 
-                    key={activeService} // Force re-render on change
-                    src={services[activeService].image} 
-                    alt={services[activeService].title}
-                    className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+                    style={{
+                      opacity: 1,
+                      zIndex: 1
+                    }}
+                  >
+                    <img 
+                      key={activeService}
+                      src={services[activeService].image} 
+                      alt={services[activeService].title}
+                      className="w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                  </div>
                   
-                  {/* Floating Service Badge */}
-                  <div className="absolute top-6 left-6">
-                    <div className="bg-white/20 backdrop-blur-md rounded-2xl p-3 border border-white/30">
+                  {/* Floating Service Badge with Animation */}
+                  <div className="absolute top-6 left-6 z-10">
+                    <div 
+                      className="bg-white/20 backdrop-blur-md rounded-2xl p-3 border border-white/30 transform transition-all duration-700 ease-out"
+                      style={{
+                        opacity: 1,
+                        transform: `translateY(0px)`,
+                      }}
+                    >
                       <div className="flex items-center text-white">
-{React.createElement(services[activeService].icon, { className: "w-6 h-6 mr-2" })}
-                        <div>
+                        <div className="transform transition-transform duration-500 ease-out">
+                          {React.createElement(services[activeService].icon, { 
+                            className: "w-6 h-6 mr-2 transition-all duration-500" 
+                          })}
+                        </div>
+                        <div className="transform transition-all duration-500 ease-out">
                           <div className="font-bold text-base">{services[activeService].title}</div>
                           <div className="text-xs opacity-90">{services[activeService].subtitle}</div>
                         </div>
@@ -135,19 +163,25 @@ const Services = () => {
                     </div>
                   </div>
 
-                  {/* Professional Stats Overlay */}
-                  <div className="absolute bottom-6 right-6">
-                    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                  {/* Professional Stats Overlay with Animation */}
+                  <div className="absolute bottom-6 right-6 z-10">
+                    <div 
+                      className="bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg transform transition-all duration-700 ease-out"
+                      style={{
+                        opacity: 1,
+                        transform: `translateY(0px)`,
+                      }}
+                    >
                       <div className="grid grid-cols-3 gap-3 text-center">
-                        <div>
+                        <div className="transform transition-all duration-500 ease-out">
                           <div className="font-bold text-base" style={{color: '#7A2E1D'}}>{services[activeService].stats.projects}</div>
                           <div className="text-xs text-gray-600">Projects</div>
                         </div>
-                        <div>
+                        <div className="transform transition-all duration-500 ease-out delay-100">
                           <div className="font-bold text-base" style={{color: '#7A2E1D'}}>{services[activeService].stats.timeline}</div>
                           <div className="text-xs text-gray-600">Timeline</div>
                         </div>
-                        <div>
+                        <div className="transform transition-all duration-500 ease-out delay-200">
                           <div className="font-bold text-base" style={{color: '#7A2E1D'}}>{services[activeService].stats.satisfaction}</div>
                           <div className="text-xs text-gray-600">Satisfaction</div>
                         </div>
@@ -156,30 +190,74 @@ const Services = () => {
                   </div>
                 </div>
                 
-                {/* Service Content */}
+                {/* Service Content with Smooth Transitions */}
                 <div className="p-9 flex flex-col justify-center">
-                  <div className="mb-6">
+                  <div 
+                    className="mb-6 transform transition-all duration-700 ease-out"
+                    style={{
+                      opacity: isTransitioning ? 0 : 1,
+                      transform: isTransitioning ? 'translateY(20px)' : 'translateY(0px)'
+                    }}
+                  >
                     <div className="flex items-center mb-3">
-                      <span className="text-xl font-bold mr-3 opacity-30" style={{color: '#7A2E1D'}}>{services[activeService].id}</span>
-                      <div>
-                        <h3 className="text-2xl font-bold mb-1" style={{color: '#1C1C1C'}}>{services[activeService].title}</h3>
-                        <p className="text-base font-semibold" style={{color: '#7A2E1D'}}>{services[activeService].subtitle}</p>
+                      <span 
+                        className="text-xl font-bold mr-3 transition-all duration-500" 
+                        style={{color: '#7A2E1D'}}
+                      >
+                        {services[activeService].id}
+                      </span>
+                      <div className="transform transition-all duration-500 ease-out">
+                        <h3 
+                          className="text-2xl font-bold mb-1 transition-all duration-500" 
+                          style={{color: '#1C1C1C'}}
+                        >
+                          {services[activeService].title}
+                        </h3>
+                        <p 
+                          className="text-base font-semibold transition-all duration-500" 
+                          style={{color: '#7A2E1D'}}
+                        >
+                          {services[activeService].subtitle}
+                        </p>
                       </div>
                     </div>
                   </div>
                   
-                  <p className="text-gray-700 mb-4 leading-relaxed text-base">
-                    {services[activeService].description}
-                  </p>
+                  <div 
+                    className="transform transition-all duration-700 ease-out delay-100"
+                    style={{
+                      opacity: isTransitioning ? 0 : 1,
+                      transform: isTransitioning ? 'translateY(20px)' : 'translateY(0px)'
+                    }}
+                  >
+                    <p className="text-gray-700 mb-4 leading-relaxed text-base transition-all duration-500">
+                      {services[activeService].description}
+                    </p>
 
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {services[activeService].detailedDescription}
-                  </p>
+                    <p className="text-gray-600 mb-6 leading-relaxed transition-all duration-500">
+                      {services[activeService].detailedDescription}
+                    </p>
+                  </div>
                   
-                  <div className="grid grid-cols-2 gap-3 mb-6">
+                  <div 
+                    className="grid grid-cols-2 gap-3 mb-6 transform transition-all duration-700 ease-out delay-200"
+                    style={{
+                      opacity: isTransitioning ? 0 : 1,
+                      transform: isTransitioning ? 'translateY(20px)' : 'translateY(0px)'
+                    }}
+                  >
                     {services[activeService].features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full mr-2 flex-shrink-0" style={{backgroundColor: '#7A2E1D'}}></div>
+                      <div 
+                        key={featureIndex} 
+                        className="flex items-center text-gray-600 transform transition-all duration-500 ease-out"
+                        style={{
+                          transitionDelay: `${featureIndex * 50}ms`
+                        }}
+                      >
+                        <div 
+                          className="w-1.5 h-1.5 rounded-full mr-2 flex-shrink-0 transition-all duration-300" 
+                          style={{backgroundColor: '#7A2E1D'}}
+                        />
                         <span className="font-medium text-xs">{feature}</span>
                       </div>
                     ))}
@@ -190,7 +268,6 @@ const Services = () => {
             </div>
           </div>
           
-          {/* Premium Call to Action Section */}
         
         </div>
       </div>
