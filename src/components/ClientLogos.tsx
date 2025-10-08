@@ -3,19 +3,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
 const ClientLogos = () => {
-  const clients = [
-    { name: "Samsung", logo: "/clientsLogo/cheilx.png" },
-    { name: "Bharti AXA", logo: "/clientsLogo/bhartiAxa.jpeg" },
-    { name: "HCL", logo: "/clientsLogo/HCL.png" },
-    { name: "JLL", logo: "/clientsLogo/jll.png" },
-    { name: "Qualitest", logo: "/clientsLogo/qualitest.png" },
-    { name: "Savills", logo: "/clientsLogo/savills.png" },
-    { name: "NBCC", logo: "/clientsLogo/nbcc.png" },
-    { name: "Xebia", logo: "/clientsLogo/xebia.webp" },
-    { name: "Lifelong", logo: "/clientsLogo/lifelong.png" },
-    { name: "Vidyagyan", logo: "/clientsLogo/vidyagyan.jpg" },
-    { name: "PM Inter", logo: "/clientsLogo/PM inter.webp" },
-  ];
+  const clients = Array.from({ length: 35 }, (_, index) => ({
+    name: `Client ${index + 1}`,
+    logo: `/logos/${index + 1}.png`
+  }));
 
   // Duplicate clients for infinite effect
   const infiniteClients = [...clients, ...clients];
