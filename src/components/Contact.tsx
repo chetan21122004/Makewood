@@ -83,14 +83,14 @@ const Contact = () => {
   ];
 
   return (
-    <section className="w-full py-3 sm:py-4 bg-white" id="contact">
+    <section className="w-full py-1 sm:py-2 bg-white" id="contact">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-7xl mx-auto">
           
           {/* Contact Header */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center px-6 py-3 bg-gray-50 rounded-full text-sm font-medium mb-8 shadow-sm border border-gray-100">
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold mr-4" style={{backgroundColor: '#7A2E1D', color: 'white'}}>06</span>
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold mr-4" style={{backgroundColor: '#7A2E1D', color: 'white'}}>05</span>
               <span style={{color: '#1C1C1C'}} className="font-semibold">Let's Connect</span>
             </div>
           
